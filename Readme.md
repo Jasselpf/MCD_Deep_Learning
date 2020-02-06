@@ -1,3 +1,4 @@
-## Deep Learning - Notas de la clase (2020)
+## Deep Learning - Notas de clase (2020)
 
-Profesor: [EDGAR FRANCISCO ROMAN RANGEL](francisco.roman@itam.mx)
+Profesor: [EDGAR FRANCISCO ROMAN RANGEL](https://facultad.itam.mx/es/facultad/edgar-francisco-roman-rangel)
+Email: francisco.roman@itam.mx
