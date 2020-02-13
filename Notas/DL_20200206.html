@@ -201,31 +201,97 @@ summary {
 <div id="preguntas-posibles-para-el-exámen" class="section level3">
 <h3>Preguntas posibles para el exámen</h3>
 <ol style="list-style-type: decimal">
-<li>¿Qué es deep learning?<br />
-</li>
+<li>¿Qué es deep learning?</li>
 </ol>
-<p>Deep Learning es una técnica de aprendizaje automático (machine leanring) basada en aprender características y tareas directamente de los datos. Se caracteriza por estar compuesto por redes neuronales para el procesaminento de la información.</p>
+<p>Deep Learning es una técnica o sub área de aprendizaje automático (machine leanring) basada en aprender características y tareas directamente de los datos. Se caracteriza por estar compuesto por redes neuronales para el procesaminento de la información.</p>
 <ol start="2" style="list-style-type: decimal">
-<li>¿Qué lo hace deep learning?<br />
-</li>
+<li>¿Qué lo hace deep learning?</li>
 </ol>
 <p>La principal distinción del deep learning se establece por su estructura y procesamiento de la información el cual imita las redes neuronales del cerebro humano. El término deep hace referencia a las capas ocultas de estas redes, que generalmente son del orden de decenas a centenas.</p>
 <ol start="3" style="list-style-type: decimal">
-<li><p>Relación entre regresión y clasificación. ¿Por qué son modelos equivalentes?<br />
-</p></li>
-<li><p>Conjuntos de datos Test y Prueba<br />
-</p></li>
-<li><p>Diferencia entre parámetro o hiperparámetro</p></li>
-<li><p>Perceptrón. Idea, ¿qué modela?, ¿cómo calculo el número de parámetros? y ¿qué debo considerar?</p></li>
-<li><p>Backprop, si tengo una red de este tipo, ¿qué parametros debo de considerar?</p></li>
-<li><p>Vanishing gradient / Exploding gradient problem</p></li>
+<li>Relación entre regresión y clasificación. ¿Por qué son modelos equivalentes?</li>
 </ol>
-<p>Si la función de activacion tiene una derivada que pueda tomar valores muy grandes, uno de los riesgos que se presentan es el llamado exploding gradient problem</p>
+<p>En un modelo de regresión los valores que se desan reproducir tiene valores continuos, mientras que en los problemas de clasificación los valores de los conjuntos que se desean reproducir son categorías. Su similitud es que en un modelo de regresión los resultados se pueden discretizar para obtener las categorías necesarias en base a una probabilidad.</p>
+<ol start="4" style="list-style-type: decimal">
+<li>Conjuntos de datos Test y Prueba.</li>
+</ol>
+<p>El conjunto entrenamiento se utiliza para ajustar los parámetros del modelo. El conjunto de validación se utiliza para ajustar los hiperparámetros del modelo. El conjunto de prueba se utiliza para evaluar el desempeño del modelo.</p>
+<ol start="5" style="list-style-type: decimal">
+<li>Diferencia entre parámetro o hiperparámetro</li>
+</ol>
+<p>Parámetros: son los que el modelo aprende por si solo, por ejemplo los pesos o biases.</p>
+<p>Hiperparámetros: son utilizados para optimizar el desempeño del modelo, por ejemplo el número de capas ocultas, tasa de aprendizaje, etc.</p>
+<ol start="6" style="list-style-type: decimal">
+<li>Perceptrón. Idea, ¿qué modela?, ¿cómo calculo el número de parámetros? y ¿qué debo considerar?</li>
+</ol>
+<p>Perceptrón es un clasificador linear binario y consiste de cuatro partes: input values, pesos y bias, suma total (S), y una función de activación. La función de activación es utilizada para obtener un resultado acotado, generalmente entre (0,1), o (-1,1)</p>
+<ol start="7" style="list-style-type: decimal">
+<li>Backprop, si tengo una red de este tipo, ¿qué parametros debo de considerar?</li>
+</ol>
+<p>Si mi problema es no lineal entonces es conveniente usar una red neuronal. Si mi problema es altamente lineal, entonces es mejor resolverlo de la manera tradicional.</p>
+<p>El objetivo de backpropagation es ajustar cada peso en la red en proporción a su contribución al error. Si reducimos iterativamente el error de cada peso, eventualmente obtendremos los pesos adecuados para obtener buenas predicciones.</p>
+<ol start="8" style="list-style-type: decimal">
+<li>Vanishing gradient / Exploding gradient problem</li>
+</ol>
+<p>Si la función de activacion tiene una derivada que pueda tomar valores muy grandes, uno de los riesgos que se presentan es el llamado exploding gradient problem.</p>
+<p>El término vanishing problem se refiere cuando en un red neuronal no es capaz de propagar información útil del gradiente desde la salida/output final del modelo hasta las capas cercanas al input del modelo. Esto se observa cuando en un modelo con muchas capas es incapaz de aprender con el modelo de datos, o cuando se alcanza una convergencia premarura a una solución probre. La solución más usada en estos casos es utilizar estas funciones de activación: ReLu, Leaky ReLu, o Elu (exponencial linar unit)</p>
 <ol start="9" style="list-style-type: decimal">
-<li><p>Funciones de activación, ¿cuándo es recomendable usar una u otra?</p></li>
-<li><p>Funciones de pérdida, ¿cuándo conviene usar una u otra?</p></li>
-<li><p>Optimizadores</p></li>
+<li>Funciones de activación, ¿cuándo es recomendable usar una u otra?</li>
 </ol>
+<ul>
+<li><p>Lineal - Da un rango de activaciones, no es una activación no lineal</p></li>
+<li><p>Step</p></li>
+<li><p>Sigmoide - se utiliza generalmente con clasificasión binaria</p></li>
+<li><p>ReLu - Usar en capas intermedias</p></li>
+<li><p>Leaky ReLu - Usado principalmente cuando tenemos neuronas muertas o de lado negativo</p></li>
+<li><p>Elu (exponencial linar unit)</p></li>
+<li><p>Sof Plus</p></li>
+<li><p>Max Out</p></li>
+<li><p>SoftMax - Usar softmax en la capa de salida si es clasificación multiclase</p></li>
+</ul>
+<ol start="10" style="list-style-type: decimal">
+<li>Funciones de pérdida, ¿cuándo conviene usar una u otra?</li>
+</ol>
+<ul>
+<li><p>MSE (mean square error) - aka L2 loss - se usa para regresión</p></li>
+<li><p>MAE (mean absolute arror) - aka L1 loss - se usa para regresión</p></li>
+<li><p>Huber Loss - combinación entre pérdidas L2 y L1 - se usa para regresión</p></li>
+<li><p>Categorical cross entropy - se usa en clasificación</p></li>
+<li><p>Binary cross entropy - se usa en clasificación binaria</p></li>
+<li><p>Dibergencia Kullbak Leibler (D_KL)</p></li>
+</ul>
+<ol start="11" style="list-style-type: decimal">
+<li>Optimizadores</li>
+</ol>
+<ul>
+<li><p>Gradient Descent - (GD) - base de todos los optimizadores</p></li>
+<li><p>Stochastic Gradiente Descent (SGD) - es útil para escapar de mínimos locales</p></li>
+<li>Minibatch Gradient Descent - es lo que se utiliza en la práctica.<br />
+Usa lotes<br />
+Actualiza parámetros por lote<br />
+Los lotes generalmente deben de ser mayores de 32 y menores de 256<br />
+</li>
+<li><p>Momentum - acelera la bajada y disminuye oscilaciones<br />
+Por la acumulación de gradientes, los pesos van a converger hacia un error apropiado mucho más rápido<br />
+Es comparable con el momento en física</p></li>
+<li><p>Nesterov Accelerated Gradient (NAG) - anticipa cambios de dirección.<br />
+En lugar de calcular el gradiente en la posición actual, se trata de calcular en una posición futura aproximada Funciona bien para redes recurrentes<br />
+Evalua el costo de moverme  </p></li>
+<li><p>Ada Gradient (Adagrad) - modelos adaptativos<br />
+El learning rate y el coeficiente de momento no permanecen constantes, estos valores se van adaptando para cada peso en la red<br />
+Eta bajo para variables frecuentes, con pocos pasos se aprende lo necesario<br />
+Eta alto para variables poco frecuentes<br />
+Funciona bien con datos ralos<br />
+La desventaje con este modelo es que sin importar los gradientes de los pesos pasados el cache para la actualziación siempre va a incrementar ya que el cuadrado del gradiente siempre es positivo, lo que resultará es que el entrenamiento va a dejar de ser significante</p></li>
+<li><p>Adadelta<br />
+Trata de resolver el problema del incremento monótono en el denominador de Adagrad<br />
+Restringe la historia a una ventana temporal</p></li>
+<li><p>RMSprop<br />
+La caida del error no es tan rápida<br />
+Similar que Adadelta pero con una tasa de decaimiento (-.9) y momento dadas (0.001)  </p></li>
+<li><p>Adam - es el más usado excepto cuando tienes datos ralos<br />
+Se puede pensar como una combinación entre Adadelta y Momentum</p></li>
+</ul>
 </div>
 </div>
 
